@@ -1,0 +1,36 @@
+[user]
+        name = Leo Park
+        email = leoppark94@gmail.com
+
+[color]
+  ui = auto
+
+[diff]
+    tool = meld
+
+[core]
+  editor = nano
+  autocrlf = input
+
+[merge]
+  tool = meld
+  conflictstyle = diff3
+
+[credential]
+        helper = store
+[pull]
+        rebase = true
+[push]
+    default = current
+
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+[alias]
+        cleanup = !git branch | grep -v \"^*\" | xargs git branch -D
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[init]
+    defaultBranch = main
